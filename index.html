@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingai 2015</title>
+  <!-- https://github.com/simonwhitaker/github-fork-ribbon-css/ -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+  <![endif]-->
+</head>
+<body>
+
+<style>
+body {
+  margin: 0px;
+  max-width: 630px;
+  margin: auto;
+}
+
+div.button {
+  padding: 20px;
+  font-size: x-large;
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.github-fork-ribbon {
+  background-color: #090;
+}
+</style>
+
+<script>
+var sounds = [
+  "su", "gim", "tadieniu", "tamta", "taram",
+  "su2", "gim2", "tadieniu2", "tamta2", "taram2",
+  "linkime", "tau", "linkime2", "tau2", "namube", "duuumu"
+]
+
+var colors = [
+  "#55AA55", "#2D882D", "#125112", "#004400",
+  "#407F7F", "#226666", "#0D3D3D", "#003333",
+  "#A5C663", "#7B9F35", "#465F15", "#354F00"
+]
+
+function randomColor() {
+  return colors[Math.floor(Math.random()*colors.length)]
+}
+
+document.body.style.background = randomColor()
+
+for (id in sounds) {
+  var sound = sounds[id]
+
+  var audio = document.createElement("audio")
+  audio.src = "sounds/" + sound + ".mp3"
+  audio.type = "audio/mpeg"
+  audio.preload = true
+
+  var button = document.createElement("div")
+  button.className = "button"
+  button.style.background = randomColor()
+  button.onclick = (function(a) {
+    return function() {
+      a.load()
+      a.play()
+    }
+  })(audio)
+
+  var text = document.createTextNode(sound)
+  button.appendChild(text)
+
+  document.body.appendChild(button)
+}
+</script>
+
+<div class="github-fork-ribbon-wrapper right-bottom">
+  <div class="github-fork-ribbon">
+    <a href="https://github.com/2m/inga2015">Fork me on GitHub</a>
+  </div>
+</div>
+
+</body>
+</html>
